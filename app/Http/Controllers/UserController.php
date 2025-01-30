@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Resources\User\UserResource;
+use App\Models\User;
+
+class UserController extends Controller
+{
+    public function store(StoreUserRequest $request): UserResource
+    {
+        return new UserResource(User::create($request->validated()));
+    }
+}
