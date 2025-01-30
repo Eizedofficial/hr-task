@@ -7,6 +7,11 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Email;
 use Illuminate\Validation\Rules\Unique;
 
+/**
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ */
 class StoreUserRequest extends FormRequest
 {
     /**

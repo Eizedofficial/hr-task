@@ -21,6 +21,7 @@ namespace App\Models{
  * @property-read \App\Models\TFactory|null $use_factory
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Transaction> $transactions
  * @property-read int|null $transactions_count
+ * @property-read \App\Models\User $user
  * @method static \Database\Factories\AccountFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Account newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Account newQuery()
@@ -38,11 +39,22 @@ namespace App\Models{
 /**
  * 
  *
+ * @property int $id
+ * @property int $account_id
+ * @property float $value
+ * @property string|null $description
+ * @property string $created_at
+ * @property-read \App\Models\Account $account
  * @property-read \App\Models\TFactory|null $use_factory
  * @method static \Database\Factories\TransactionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Transaction newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Transaction newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Transaction query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Transaction whereAccountId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Transaction whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Transaction whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Transaction whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Transaction whereValue($value)
  * @mixin \Eloquent
  */
 	#[\AllowDynamicProperties]
@@ -65,6 +77,8 @@ namespace App\Models{
  * @property-read \App\Models\TFactory|null $use_factory
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Transaction> $transactions
+ * @property-read int|null $transactions_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newQuery()
