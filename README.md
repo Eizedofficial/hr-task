@@ -22,6 +22,16 @@
 
 Результат должен быть выложен в Git с открытым доступом, любой на выбор
 
+## Запуск проекта через Docker (Sail)
+~~~
+./vendor/bin/sail up
+./vendor/bin/sail composer install
+~~~
+После этого можно заполнить базу
+~~~
+./vendor/bin/sail php artisan migrate --seed
+~~~
+
 ## Структура базы
 
 ![Таблицы и отношения](./storage/docs/db_structure.png)
