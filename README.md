@@ -24,8 +24,10 @@
 
 ## Запуск проекта через Docker (Sail)
 ~~~
-./vendor/bin/sail up
-./vendor/bin/sail composer install
+cp .env.example .env
+docker compose up -d
+docker exec -it [контейнер с приложением] bash
+composer install
 ~~~
 После этого можно заполнить базу
 ~~~
