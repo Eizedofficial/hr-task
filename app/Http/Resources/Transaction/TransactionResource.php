@@ -13,7 +13,8 @@ class TransactionResource extends JsonResource
     {
         return [
             'created_at' => $this->created_at,
-            'value' => $this->value
+            'value' => $this->value,
+            'description' => $this->description
         ];
     }
 }

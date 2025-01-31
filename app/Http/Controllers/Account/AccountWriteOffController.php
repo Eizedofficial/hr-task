@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Http\Requests\Account\AccountOperationRequest;
+use App\Http\Requests\Account\AccountTransactionRequest;
 use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use App\Services\Account\AccountWriteOffService;
@@ -15,7 +15,7 @@ class AccountWriteOffController
      */
     public function __invoke(
         User $user,
-        AccountOperationRequest $request,
+        AccountTransactionRequest $request,
         AccountWriteOffService $service
     ): UserResource
     {

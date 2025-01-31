@@ -7,7 +7,7 @@ use App\Models\User;
 use stdClass;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class AccountWriteOffService extends AccountOperationService
+class AccountWriteOffService extends AccountTransactionService
 {
     /**
      * @throws HttpException

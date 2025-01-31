@@ -7,7 +7,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use stdClass;
 
-class AccountOperationService
+class AccountTransactionService
 {
     public function execute(User $user, stdClass $transactionData): UserResource
     {

@@ -10,7 +10,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property \double $value
  * @property string $description
  */
-class AccountOperationRequest extends FormRequest
+class AccountTransactionRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
