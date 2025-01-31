@@ -1,0 +1,211 @@
+openapi: 3.0.0
+info:
+  title: API Тестового задания - биллинг
+  version: 1.0.0
+  description: Документация для API управления пользователями и их счетами.
+servers:
+  - url: http://localhost:80
+paths:
+  /api/users/{user_id}/:
+    get:
+      summary: Получить информацию о пользователе
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: ID пользователя
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Информация о пользователе
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      balance:
+                        type: number
+                        format: float
+
+  /api/users/:
+    post:
+      summary: Регистрация пользователя
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+      responses:
+        '201':
+          description: Пользователь успешно зарегистрирован
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      balance:
+                        type: number
+                        format: float
+
+  /api/users/{user_id}/account/replenish/:
+    post:
+      summary: Пополнение счёта пользователя
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: ID пользователя
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: number
+                  format: float
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Счёт пользователя успешно обновлён
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      balance:
+                        type: number
+                        format: float
+
+  /api/users/{user_id}/account/write_off/:
+    post:
+      summary: Списание со счёта пользователя
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: ID пользователя
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: number
+                  format: float
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Счёт пользователя успешно обновлён
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      email:
+                        type: string
+                      balance:
+                        type: number
+                        format: float
+
+  /api/users/{user_id}/transactions:
+    get:
+      summary: Получить список транзакций пользователя
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: ID пользователя
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date_sort_order:
+                  type: string
+                  enum: [asc, desc]
+                description:
+                  type: string
+                  example: "Налог"
+      responses:
+        '200':
+          description: Список транзакций пользователя
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        created_at:
+                          type: string
+                          format: date-time
+                          example: "2025-01-30 16:08:45"
+                        value:
+                          type: number
+                          format: float
+                          example: 10
+                        description:
+                          type: string
+                          nullable: true
+                          example: null
