@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Account;
 
-use App\Http\Requests\User\UserAccountOperationRequest;
+use App\Http\Requests\Account\AccountOperationRequest;
 use App\Http\Resources\User\UserResource;
 use App\Models\User;
-use App\Services\User\UserAccountWriteOffService;
+use App\Services\Account\AccountWriteOffService;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class UserAccountWriteOffController
+class AccountWriteOffController
 {
     /**
      * @throws HttpException
      */
     public function __invoke(
         User $user,
-        UserAccountOperationRequest $request,
-        UserAccountWriteOffService $service
+        AccountOperationRequest $request,
+        AccountWriteOffService $service
     ): UserResource
     {
         return $service->execute($user, (object)$request->validated());

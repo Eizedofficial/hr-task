@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Services\User;
+namespace App\Services\Account;
 
 use App\Http\Resources\User\UserResource;
 use App\Models\Transaction;
 use App\Models\User;
 use stdClass;
 
-class UserAccountOperationService
+class AccountOperationService
 {
     public function execute(User $user, stdClass $transactionData): UserResource
     {

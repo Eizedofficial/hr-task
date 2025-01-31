@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Services\User;
+namespace App\Services\Account;
 
-use App\Http\Requests\User\UserAccountOperationRequest;
 use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use stdClass;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class UserAccountWriteOffService extends UserAccountOperationService
+class AccountWriteOffService extends AccountOperationService
 {
     /**
      * @throws HttpException

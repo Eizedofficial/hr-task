@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Account;
 
 use App\Rules\Double;
 use Illuminate\Contracts\Validation\ValidationRule;
@@ -10,7 +10,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property \double $value
  * @property string $description
  */
-class UserAccountOperationRequest extends FormRequest
+class AccountOperationRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
